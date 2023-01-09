@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test 3</title>
+</head>
+<body>
+  <input type="number" value="08" max="12" id="h">
+  <input type="number" value="34" max="59" id="m">
+  <input type="number" value="33" max="59" id="s">
+  <select name="" id="am-pm" onchange="output()">
+    <option value="am">AM</option>
+    <option value="pm" selected>PM</option>
+  </select>
+  <span id="output"></span>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script>
+  var h = document.getElementById('h').value
+  var m = document.getElementById('m').value
+  var s = document.getElementById('s').value
+  var am_pm = document.getElementById('am-pm').value
+  var momentObj = moment(`${h}:${m}:${s} ${am_pm}`, ["h:mm:ss A"])
+  document.getElementById("output").innerText = momentObj.format("HH:mm:ss");
+  function output() {
+    h = document.getElementById('h').value
+    m = document.getElementById('m').value
+    s = document.getElementById('s').value
+    am_pm = document.getElementById('am-pm').value
+    momentObj = moment(`${h}:${m}:${s} ${am_pm}`, ["h:mm:ss A"])
+    document.getElementById("output").innerText = momentObj.format("HH:mm:ss");
+  }
+</script>
+</html>
