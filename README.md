@@ -1,4 +1,4 @@
-# packege install
+# package install
 npm install
 
 # run
