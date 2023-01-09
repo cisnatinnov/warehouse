@@ -1,8 +1,8 @@
 # packege install
 npm install
 
-#run
+# run
 npm start
 
-#unit test
+# unit test
 npm run test
