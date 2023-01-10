@@ -3,7 +3,7 @@ const app = express()
 const response = require('../middlewares/response')
 const { read, create, update, del, delPermanent } = require('../models/userModel')
 const { celebrate } = require("celebrate")
-const { userCreateSchema, userUpdateSchema, changePasswordSchema, userIdSchema } = require('../middlewares/schema')
+const { createSchema, updateSchema, changePasswordSchema, userIdSchema } = require('../middlewares/userSchema')
 const { verifyJwt } = require('../middlewares/security')
 
 app.get('/users', verifyJwt, (req, res) => {
@@ -17,7 +17,7 @@ app.get('/users', verifyJwt, (req, res) => {
   }
 })
 
-app.post('/users', [verifyJwt, celebrate({body: userCreateSchema})], (req, res) => {
+app.post('/users', [verifyJwt, celebrate({body: createSchema})], (req, res) => {
   try {
     let data = req.body
     create(req, res, data)
@@ -26,7 +26,7 @@ app.post('/users', [verifyJwt, celebrate({body: userCreateSchema})], (req, res) 
   }
 })
 
-app.put('/users', [verifyJwt, celebrate({body: userUpdateSchema})], (req, res) => {
+app.put('/users', [verifyJwt, celebrate({body: updateSchema})], (req, res) => {
   try {
     let data = req.body
     update(req, res, data, data.user_id)

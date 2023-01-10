@@ -9,14 +9,14 @@ const passwordSchema = Joi.object().keys({
   password: Joi.string().min(8).required()
 }).unknown(true)
 
-const userCreateSchema = Joi.object().keys({
+const createSchema = Joi.object().keys({
   email: Joi.string().max(64).required(),
   username: Joi.string().max(64).required(),
   password: Joi.string().min(8).required(),
   confirmPassword: Joi.string().min(8).required()
 }).unknown(true)
 
-const userUpdateSchema = Joi.object().keys({
+const updateSchema = Joi.object().keys({
   user_id: Joi.string().required(),
   email: Joi.string().max(64).required(),
   username: Joi.string().max(64).required()
@@ -36,8 +36,8 @@ const userIdSchema = Joi.object().keys({
 module.exports = {
   emailSchema,
   passwordSchema,
-  userCreateSchema,
-  userUpdateSchema,
+  createSchema,
+  updateSchema,
   changePasswordSchema,
   userIdSchema
 }
